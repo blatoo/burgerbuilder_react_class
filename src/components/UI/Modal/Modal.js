@@ -17,10 +17,7 @@ class Modal extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Backdrop
-					show={this.props.purchasing}
-					clicked={this.props.purchasingCancel}
-				>
+				<Backdrop show={this.props.show} clicked={this.props.modalClosed}>
 					{" "}
 				</Backdrop>
 				<div
