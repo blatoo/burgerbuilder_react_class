@@ -7,6 +7,7 @@ import classes from "./Button.module.css";
  * @param {function} props.clicked Function will executed when the component is clicked
  * @returns <button> object
  */
+//const button = {clicked, children, btnType} => {
 const button = props => {
 	return (
 		<button
