@@ -2,6 +2,12 @@ import React from "react";
 import classes from "./Burger.module.css";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredient";
 
+/**
+ * A picture of Burger with ingredients
+ * 
+ * @param {Object} props.igredients A object with salad, meat, bacon, cheese
+ * @returns a stack of <BurgerIngredient>
+ */
 const burger = props => {
 	let transformedIngredients = Object.keys(props.ingredients).map(igKey => {
 		return [...Array(props.ingredients[igKey])].map((_, i) => {

@@ -1,8 +1,8 @@
 import "./App.css";
 import Layout from "./hoc/Layout/Layout";
-
 import React, { Component } from "react";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
+import Checkout from './containers/Checkout/Checkout'
 
 export class App extends Component {
 	render() {
@@ -10,6 +10,7 @@ export class App extends Component {
 			<div>
 				<Layout>
 					<BurgerBuilder />
+					<Checkout />
 				</Layout>
 			</div>
 		);
