@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import Aux from "../../../hoc/Auxillians/Auxilian";
 import Button from "../../UI/Button/Button";
 
+/**
+ * Showed after clicke "Order"
+ * @param ingredient \{salad: ??, meat: ??, bacon: ??, cheese: ??}
+ * @param purchasingCancel <Button clicked=???> cancel </Button>
+ * @param purchasingContinue <Button clicked=?> Continue </Button>
+ * @param price the total price of the order
+ * 
+ * @returns ingredients, <Button> <Button>, total price
+ */
 class OrderSummary extends Component {
 
 	componentDidUpdate(){
