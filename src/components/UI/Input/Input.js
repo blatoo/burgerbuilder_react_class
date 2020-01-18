@@ -6,6 +6,7 @@ import classes from "./Input.module.css";
  * @param {*} elementType "input", "textarea", "select"
  * @param elementConfig {type: 'text', placeholder: 'Your name'}
  * @param value the default value of this input
+ * @param clicked <function> for <input onChange=...>
  * @param inputLabel <String>
  * @param props different atttributes (option)
  *
@@ -21,6 +22,7 @@ const Input = props => {
 					className={classes.inputElement}
 					{...props.elementConfig}
 					value={props.value}
+					onChange={props.changed}
 				/>
 			);
 			break;
@@ -30,6 +32,7 @@ const Input = props => {
 					className={classes.inputElement}
 					{...props.elementConfig}
 					value={props.value}
+					onChange={props.changed}
 				/>
 			);
 			break;
@@ -39,9 +42,12 @@ const Input = props => {
 					className={classes.inputElement}
 					{...props.elementConfig}
 					value={props.value}
+					onChange={props.changed}
 				>
 					{props.elementConfig.options.map(option => (
-						<option key={option.value} value={option.value}>{option.displayValue}</option>
+						<option key={option.value} value={option.value}>
+							{option.displayValue}
+						</option>
 					))}
 				</select>
 			);

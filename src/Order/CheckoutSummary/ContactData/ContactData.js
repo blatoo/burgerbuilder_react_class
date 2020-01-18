@@ -96,36 +96,42 @@ class ContactData extends Component {
 			.catch(error => {
 				this.setState({ loading: false });
 			});
+	};
 
-		// axios
-		// 	.post("/orders.json", order)
-		// 	.then(response => {
-		// 		this.setState({ loading: false, purchasing: false });
-		// 	})
-		// 	.catch(error => {
-		// 		this.setState({ loading: false, purchasing: false });
+	inputChangeHandler = (event, inputIdentifier) => {
+		const updatedOrderForm = {
+			...this.state.orderForm
+		};
+		const updatedFormElement = { ...updatedOrderForm[inputIdentifier] };
+
+		updatedFormElement.value = event.target.value;
+
+		updatedOrderForm[inputIdentifier] = updatedFormElement;
+
+		this.setState({ orderForm: updatedOrderForm });
 	};
 
 	render() {
-
-		const formElementsArray = []
-		for (let key in this.state.orderForm){
+		const formElementsArray = [];
+		for (let key in this.state.orderForm) {
 			formElementsArray.push({
 				id: key,
 				config: this.state.orderForm[key]
-			})
+			});
 		}
 
 		let form = (
 			<form>
 				{formElementsArray.map(formElement => {
 					return (
-						<Input 
-						key={formElement.id} 
-						elementType={formElement.config.elementType}
-						elementConfig={formElement.config.elementConfig}
-						value={formElement.config.value}
-					/> )
+						<Input
+							key={formElement.id}
+							elementType={formElement.config.elementType}
+							elementConfig={formElement.config.elementConfig}
+							value={formElement.config.value}
+							changed={event => this.inputChangeHandler(event, formElement.id)}
+						/>
+					);
 				})}
 
 				<Button btnType="Success" clicked={this.orderHandler}>
