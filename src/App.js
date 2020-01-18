@@ -4,7 +4,6 @@ import Layout from "./hoc/Layout/Layout";
 import React, { Component } from "react";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 import Checkout from "./containers/Checkout/Checkout";
-import CheckoutSummary from "./Order/CheckoutSummary/CheckoutSummary";
 import Orders from "./containers/Orders/Orders";
 
 export class App extends Component {
