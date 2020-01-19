@@ -8,8 +8,9 @@ import classes from "./Input.module.css";
  * @param value the default value of this input
  * @param clicked <function> for <input onChange=...>
  * @param inputLabel <String>
- * @param shouldValidate <boolean>
- * @param invalid <boolean>
+ * @param shouldValidate <boolean> should this input area be validated
+ * @param invalid <boolean> result of checked validation
+ * @param touched <boolean> If the input area never been touched by the user, then the validation should not be checked
  * @param props different atttributes (option)
  *
  * @returns <Label><input>
@@ -18,7 +19,7 @@ const Input = props => {
 	let inputElement = null;
 	const inputClasses = [classes.InputElement];
 
-	if (props.invalid && props.shouldValidate) {
+	if (props.invalid && props.shouldValidate && props.touched) {
 		inputClasses.push(classes.Invalid);
 	}
 
