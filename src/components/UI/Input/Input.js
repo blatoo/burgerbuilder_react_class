@@ -8,18 +8,25 @@ import classes from "./Input.module.css";
  * @param value the default value of this input
  * @param clicked <function> for <input onChange=...>
  * @param inputLabel <String>
+ * @param shouldValidate <boolean>
+ * @param invalid <boolean>
  * @param props different atttributes (option)
  *
  * @returns <Label><input>
  */
 const Input = props => {
 	let inputElement = null;
+	const inputClasses = [classes.InputElement];
+
+	if (props.invalid && props.shouldValidate) {
+		inputClasses.push(classes.Invalid);
+	}
 
 	switch (props.elementType) {
 		case "input":
 			inputElement = (
 				<input
-					className={classes.inputElement}
+					className={inputClasses.join(" ")}
 					{...props.elementConfig}
 					value={props.value}
 					onChange={props.changed}
@@ -29,7 +36,7 @@ const Input = props => {
 		case "textarea":
 			inputElement = (
 				<textarea
-					className={classes.inputElement}
+					className={inputClasses.join(" ")}
 					{...props.elementConfig}
 					value={props.value}
 					onChange={props.changed}
@@ -39,7 +46,7 @@ const Input = props => {
 		case "select":
 			inputElement = (
 				<select
-					className={classes.inputElement}
+					className={inputClasses.join(" ")}
 					{...props.elementConfig}
 					value={props.value}
 					onChange={props.changed}
