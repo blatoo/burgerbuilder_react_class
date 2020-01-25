@@ -4,11 +4,10 @@ import classes from "./ContactData.module.css";
 import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
+import { connect } from "react-redux";
 
 /**
- * show the input of the contact data
- * @param ingredients
- * @param price
+ * show the input of the contact data and transmit the data to database. With redux it doesn't need andy parameters
  *
  * @return <form>
  */
@@ -130,7 +129,7 @@ class ContactData extends Component {
 		}
 
 		const order = {
-			ingredients: this.props.ingredients,
+			ingredients: this.props.ings,
 			price: this.props.price,
 			orderData: formData
 		};
@@ -198,7 +197,9 @@ class ContactData extends Component {
 					);
 				})}
 
-				<Button btnType="Success" disabled={!this.state.formIsValid}>ORDER</Button>
+				<Button btnType="Success" disabled={!this.state.formIsValid}>
+					ORDER
+				</Button>
 			</form>
 		);
 
@@ -214,4 +215,11 @@ class ContactData extends Component {
 	}
 }
 
-export default ContactData;
+const mapStateToPros = state => {
+	return {
+		ings: state.ingredients,
+		price: state.totalPrice
+	};
+};
+
+export default connect(mapStateToPros)(ContactData);
