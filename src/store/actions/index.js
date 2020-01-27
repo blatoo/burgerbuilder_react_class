@@ -1,4 +1,4 @@
 export {addIngredient, removeIngredient, fetchIngredientsFailed, initIngredients} from './burgerBuilder'
 export {
-    purchaseBurgerStart, purchaseBurgerFail, purchaseBurgerSuccess
+    purchaseBurger, purchaseBurgerFail, purchaseBurgerSuccess
 } from './order'
