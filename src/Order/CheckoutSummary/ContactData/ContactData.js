@@ -5,6 +5,8 @@ import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
+import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler";
+import * as actions from "../../../store/actions/index";
 
 /**
  * show the input of the contact data and transmit the data to database. With redux it doesn't need andy parameters
@@ -134,6 +136,8 @@ class ContactData extends Component {
 			orderData: formData
 		};
 
+		this.props.onOrderBurger(order)
+
 		axios
 			.post("/orders.json", order)
 			.then(response => {
@@ -222,4 +226,12 @@ const mapStateToPros = state => {
 	};
 };
 
-export default connect(mapStateToPros)(ContactData);
+const mapDispatchToProps = dispatch => {
+	return {
+		onOrderBurger: orderData => {
+			dispatch(actions.purchaseBurgerStart(orderData));
+		}
+	};
+};
+
+export default connect(mapStateToPros, mapDispatchToProps)(withErrorHandler(ContactData, axios));
