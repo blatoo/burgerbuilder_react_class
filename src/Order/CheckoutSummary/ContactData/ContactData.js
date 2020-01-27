@@ -137,15 +137,6 @@ class ContactData extends Component {
 
 		this.props.onOrderBurger(order)
 
-		axios
-			.post("/orders.json", order)
-			.then(response => {
-				this.setState({ loading: false });
-				this.props.history.push("/");
-			})
-			.catch(error => {
-				this.setState({ loading: false });
-			});
 	};
 
 	inputChangeHandler = (event, inputIdentifier) => {
@@ -220,9 +211,9 @@ class ContactData extends Component {
 
 const mapStateToPros = state => {
 	return {
-		ings: state.ingredients,
-		price: state.totalPrice,
-		loading: state.loading
+		ings: state.burgerBuilder.ingredients,
+		price: state.burgerBuilder.totalPrice,
+		loading: state.order.loading
 	};
 };
 
