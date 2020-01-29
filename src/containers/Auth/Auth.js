@@ -80,7 +80,6 @@ export class Auth extends Component {
 				touched: true
 			}
 		};
-		console.log(updatedControls);
 		this.setState({ controls: updatedControls });
 	};
 
