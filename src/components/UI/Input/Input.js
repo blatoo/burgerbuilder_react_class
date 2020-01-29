@@ -6,7 +6,7 @@ import classes from "./Input.module.css";
  * @param {*} elementType "input", "textarea", "select"
  * @param elementConfig {type: 'text', placeholder: 'Your name'}
  * @param value the default value of this input
- * @param clicked <function> for <input onChange=...>
+ * @param changed <function> for <input onChange=...>
  * @param inputLabel <String>
  * @param shouldValidate <boolean> should this input area be validated
  * @param invalid <boolean> result of checked validation
