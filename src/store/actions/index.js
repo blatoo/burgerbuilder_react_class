@@ -7,5 +7,5 @@ export {
 } from './order'
 
 export {
-    authStart, authSuccess, authFail, auth, logout, setAuthRedirectPath
+    authStart, authSuccess, authFail, auth, logout, setAuthRedirectPath, authCheckState
 } from './auth'
